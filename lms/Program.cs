@@ -1,11 +1,23 @@
 ﻿using System;
+using System.Threading.Tasks;
 using lms.Models;
+using RandomUserClient;
 
 namespace lms
 {
     class Program
     {
-        static void Main(string[] args)
+        static string url = "https://randomuser.me/api";
+        static async Task Main()
+        {
+            var randomUserClient = new RandomUser(url);
+            await randomUserClient.GetRandomStudents();
+
+            Console.Read();
+        }
+
+
+        static void Main1(string[] args)
         {
             var teshavoy = new Student(
                 "Teshavoy",
